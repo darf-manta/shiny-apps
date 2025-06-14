@@ -1,0 +1,4 @@
+```
+docker build -t shiny-apps .
+docker run -p 3838:3838 --name shiny-apps-1 -d shiny-apps
+```
