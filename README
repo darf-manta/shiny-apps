@@ -1,4 +1,4 @@
 ```
 docker build -t shiny-apps .
-docker run -p 3838:3838 --name shiny-apps-1 -d shiny-apps
+docker run -p 172.17.0.1:3838:3838 --network default --name shiny-apps-1 -d shiny-apps
 ```
