@@ -1,4 +1,4 @@
-FROM rocker/shiny:4.2.2
+FROM rocker/shiny:4.5.0
 
 # RUN apt-get update
 # RUN apt-get install -y libgdal-dev libgeos-dev libproj-dev libudunits2-dev
