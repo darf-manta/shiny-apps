@@ -11,6 +11,8 @@ RUN Rscript -e 'install.packages("shinythemes")'
 # RUN rm -rf /var/lib/apt/lists/*
 # RUN strip /usr/local/lib/R/site-library/*/libs/*.so
 
+COPY R /home/shiny/R/
 COPY apps /home/shiny/apps/
+COPY data /home/shiny/data/
 COPY .Rprofile /home/shiny/
 COPY shiny-server.conf /etc/shiny-server/

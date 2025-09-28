@@ -11,10 +11,10 @@ suppressPackageStartupMessages( {
 } )
 
 # definir la zona UTM
-#UTM_EPSG = 32717L
+UTM_EPSG = 32717L
 
 # cargar coberturas espaciales
-#LIMITE = st_read("data/limite.gpkg", "limite", quiet = TRUE)
+LIMITE = st_read("data/limite.gpkg", "limite", quiet = TRUE)
 
 # cargar funciones globales
-#for(i in dir("R", pattern = "R$", full.names = TRUE)) source(i)
+for(i in dir("R", pattern = "R$", full.names = TRUE)) source(i)
