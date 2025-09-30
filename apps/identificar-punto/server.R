@@ -1,8 +1,24 @@
 function(input, output, session) {
-    result = eventReactive(input$identify, {
-        validate_coordinates(input$text1, input$text2) |>
-            capture.output() |> paste(collapse = "<br>")
-    } )
+    result = eventReactive(
+        # ejecutar al presionar el botón IDENTIFICAR
+        input$identify,
+        tryCatch( {
+            # crear un punto con los valores ingresados
+            point = validate_coordinates(input$text1, input$text2) |>
+                # unir datos de las coberturas al punto
+                st_join(PUGS_ESTRUCTURANTE, st_within)
 
-    output$result = renderUI(HTML(result()))
+            # preparar tabla para la pestaña RESULTADOS
+            tribble(
+                ~key,                 ~value,
+                "Clasificación",    point$clasificac,
+                "Subclasificación", point$subclasifi
+            ) },
+            # capturar error, en caso de ocurrir
+            error = function(error) paste("Error:", error$message)
+        )
+    )
+
+    # renderizar tabla
+    output$result = renderTable(result(), border = TRUE)
 }

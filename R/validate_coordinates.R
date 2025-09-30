@@ -61,5 +61,5 @@ validate_coordinates = function(coordinate1, coordinate2) {
     }
 
     # devolver el punto validado
-    return(point)
+    return(st_sf(geom = point))
 }
