@@ -1,8 +1,8 @@
 page_navbar(
-    title = "DARF — MANTA",
+    title = "DARF − MANTA",
     position = "fixed-top",
     fillable = FALSE,
-    inverse = FALSE,
+    #inverse = FALSE,
     underline = FALSE,
 
     theme = bs_theme(preset = "sandstone", version = 5),
@@ -13,6 +13,7 @@ page_navbar(
         title = "IDENTIFICAR PUNTO",
         layout_sidebar(
             sidebar = sidebar(
+                open = NA,
                 accordion(
                     multiple = FALSE,
                     accordion_panel(
@@ -33,5 +34,5 @@ page_navbar(
         )
     ),
 
-    nav_item(tags$a("HELLO WORLD", href = "sample-apps/hello"))
+    nav_item(tags$a("HELLO WORLD", href = "/sample-apps/hello"))
 )
