@@ -7,6 +7,7 @@ message("This is .Rprofile at ", getwd())
 suppressPackageStartupMessages( {
     library(sf)
     library(shiny)
+    library(bslib)
     library(dplyr)
 } )
 

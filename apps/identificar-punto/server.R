@@ -8,9 +8,9 @@ function(input, output, session) {
                 # unir datos de las coberturas al punto
                 st_join(PUGS_ESTRUCTURANTE, st_within)
 
-            # preparar tabla para la pestaña RESULTADOS
+            # preparar tabla para la pestaña DATOS
             tribble(
-                ~key,                 ~value,
+                ~key,               ~value,
                 "Clasificación",    point$clasificac,
                 "Subclasificación", point$subclasifi
             ) },
@@ -20,5 +20,5 @@ function(input, output, session) {
     )
 
     # renderizar tabla
-    output$result = renderTable(result(), border = TRUE)
+    output$simple_data = renderTable(result(), border = TRUE)
 }

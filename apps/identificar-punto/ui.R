@@ -1,21 +1,37 @@
-navbarPage(
-    "DARF — MANTA",
-    tabPanel(
-        "IDENTIFICAR PUNTO",
-        sidebarPanel(
-            textInput("text1", ""),
-            textInput("text2", ""), br(),
-            actionButton("identify", "IDENTIFICAR")
-        ),
-        mainPanel(
-            tabsetPanel(
-                tabPanel(
-                    "RESULTADOS", br(),
-                    tableOutput("result")
-                )
+page_navbar(
+    title = "DARF — MANTA",
+    position = "fixed-top",
+    fillable = FALSE,
+    inverse = FALSE,
+    underline = FALSE,
+
+    theme = bs_theme(preset = "sandstone", version = 5),
+
+    includeCSS("../../static/ui.css"),
+
+    nav_panel(
+        title = "IDENTIFICAR PUNTO",
+        layout_sidebar(
+            sidebar = sidebar(
+                accordion(
+                    multiple = FALSE,
+                    accordion_panel(
+                        title = "POR COORDENADAS",
+                        textInput("text1", ""),
+                        textInput("text2", ""),
+                    # ),
+                    # accordion_panel(
+                    #     title = "POR IMAGEN",
+                    #     fileInput("file1", ""),
+                    )
+                ),
+                actionButton("identify", "IDENTIFICAR")
+            ),
+            navset_tab(
+                nav_panel("DATOS", br(), tableOutput("simple_data"))
             )
         )
     ),
-    includeCSS("../../static/ui.css"),
-    theme = shinythemes::shinytheme("sandstone")
+
+    nav_item(tags$a("HELLO WORLD", href = "sample-apps/hello"))
 )
