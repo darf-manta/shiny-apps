@@ -19,3 +19,8 @@ body > .container-fluid {
 .accordion {
     --bs-accordion-bg: unset;
 }
+
+.form-group {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+}

@@ -2,10 +2,10 @@
 validate_coordinates = function(coordinate1, coordinate2) {
     # validar valores ingresados
     coordinate1 = as.double(coordinate1)
-    if(is.na(coordinate1)) stop("Corregir el primer valor ingresado.")
+    if(is.na(coordinate1)) stop("Corregir el primer valor de la coordenada.")
 
     coordinate2 = as.double(coordinate2)
-    if(is.na(coordinate2)) stop("Corregir el segundo valor ingresado.")
+    if(is.na(coordinate2)) stop("Corregir el segundo valor de la coordenada.")
 
     # definir límites UTM válidos
     min_east = 166021.44

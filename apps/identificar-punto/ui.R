@@ -2,7 +2,7 @@ page_navbar(
     title = "DARF − MANTA",
     position = "fixed-top",
     fillable = FALSE,
-    #inverse = FALSE,
+    inverse = TRUE,
     underline = FALSE,
 
     theme = bs_theme(preset = "sandstone", version = 5),
@@ -13,17 +13,24 @@ page_navbar(
         title = "IDENTIFICAR PUNTO",
         layout_sidebar(
             sidebar = sidebar(
-                open = NA,
+                open = list(desktop = "always", mobile = "always-above"),
                 accordion(
+                    id = "method",
                     multiple = FALSE,
+
                     accordion_panel(
                         title = "POR COORDENADAS",
-                        textInput("text1", ""),
-                        textInput("text2", ""),
-                    # ),
-                    # accordion_panel(
-                    #     title = "POR IMAGEN",
-                    #     fileInput("file1", ""),
+                        paste("Ingrese la coordenada geográfica o UTM",
+                              "(en cualquier orden) del punto a identificar:"),
+                        textInput("text1", NULL, placeholder = "primer valor"),
+                        textInput("text2", NULL, placeholder = "segundo valor"),
+                    ),
+
+                    accordion_panel(
+                        title = "POR FOTOGRAFÍA",
+                        "Cargue una foto georreferenciada del punto a identificar:",
+                        fileInput("file1", NULL, placeholder = "ningún archivo",
+                                  buttonLabel = "SELECCIONAR", accept = "image/*"),
                     )
                 ),
                 actionButton("identify", "IDENTIFICAR")
