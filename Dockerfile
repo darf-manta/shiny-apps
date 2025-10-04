@@ -5,7 +5,7 @@ RUN apt-get install -y libgdal-dev libgeos-dev libproj-dev libudunits2-dev
 
 RUN Rscript -e 'install.packages("sf")'
 RUN Rscript -e 'install.packages("dplyr")'
-RUN Rscript -e 'install.packages("shinythemes")'
+RUN Rscript -e 'install.packages("exifr")'
 
 # RUN rm -rf /tmp/*
 # RUN rm -rf /var/lib/apt/lists/*

@@ -9,6 +9,7 @@ suppressPackageStartupMessages( {
     library(shiny)
     library(bslib)
     library(dplyr)
+    library(exifr)
 } )
 
 # definir la zona UTM
