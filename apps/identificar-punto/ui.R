@@ -2,11 +2,11 @@ page_navbar(
     title = "DARF − MANTA",
     position = "fixed-top",
     fillable = FALSE,
-    inverse = TRUE,
     underline = FALSE,
 
     theme = bs_theme(preset = "sandstone", version = 5),
 
+    includeScript("../../static/getLocation.js"),
     includeCSS("../../static/ui.css"),
 
     nav_panel(
@@ -23,14 +23,20 @@ page_navbar(
                         paste("Ingrese la coordenada geográfica o UTM",
                               "(en cualquier orden) del punto a identificar:"),
                         textInput("text1", NULL, placeholder = "primer valor"),
-                        textInput("text2", NULL, placeholder = "segundo valor"),
+                        textInput("text2", NULL, placeholder = "segundo valor")
+                    ),
+
+                    accordion_panel(
+                        title = "POR UBICACIÓN",
+                        paste("Permita a este sitio web acceder a su ubicación GPS",
+                              "(solamente es funcional en dispositivos móviles)")
                     ),
 
                     accordion_panel(
                         title = "POR FOTOGRAFÍA",
                         "Cargue una foto georreferenciada del punto a identificar:",
                         fileInput("file1", NULL, placeholder = "ningún archivo",
-                                  buttonLabel = "SELECCIONAR", accept = "image/*"),
+                                  buttonLabel = "SELECCIONAR", accept = "image/*")
                     )
                 ),
                 actionButton("identify", "IDENTIFICAR")

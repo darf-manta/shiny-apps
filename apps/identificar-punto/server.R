@@ -10,6 +10,8 @@ function(input, output, session) {
                 # crear un punto con las coordenadas ingresadas
                 "POR COORDENADAS" = validate_coordinates(input$text1, input$text2),
 
+                "POR UBICACIÓN" = get_device_coordinates(session, input),
+
                 # extraer el punto de una fotografía georreferenciada
                 "POR FOTOGRAFÍA" = if(! is.null(input$file1)) {
                     extract_photo_coordinates(input$file1$datapath)
