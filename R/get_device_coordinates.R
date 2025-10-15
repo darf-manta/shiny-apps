@@ -5,7 +5,7 @@ get_device_coordinates = function(session, input) {
     session$sendCustomMessage("getLocation", "message")
 
     # otorgar un tiempo para que se ejecute el handler
-    Sys.sleep(2)
+    Sys.sleep(1.20)
 
     # validar los valores obtenidos por el handler
     if(is.null(input$identify_lon)) stop("No fue posible determinar su ubicación, reintente.")

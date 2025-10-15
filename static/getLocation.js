@@ -31,8 +31,8 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(sucess_pos, error_pos, {
       enableHighAccuracy:true,
-      maximumAge:30000,
-      timeout:10000
+      maximumAge:0,
+      timeout:1000
     });
   } else {
     Shiny.onInputChange(id + "_lat", "El dispositivo no es capaz de determinar la ubicación.");
