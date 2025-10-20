@@ -2,6 +2,7 @@ page_navbar(
     title = "DARF − MANTA",
     position = "fixed-top",
     fillable = FALSE,
+    inverse = FALSE,
     underline = FALSE,
 
     theme = bs_theme(preset = "sandstone", version = 5),
@@ -27,16 +28,16 @@ page_navbar(
                     ),
 
                     accordion_panel(
-                        title = "POR UBICACIÓN",
-                        paste("Permita a este sitio web acceder a su ubicación GPS",
-                              "(solamente es funcional en dispositivos móviles)")
-                    ),
-
-                    accordion_panel(
                         title = "POR FOTOGRAFÍA",
                         "Cargue una foto georreferenciada del punto a identificar:",
                         fileInput("file1", NULL, placeholder = "ningún archivo",
                                   buttonLabel = "SELECCIONAR", accept = "image/*")
+                    ),
+
+                    accordion_panel(
+                        title = "POR UBICACIÓN",
+                        paste("Permita a este sitio web acceder a su ubicación GPS",
+                              "(solamente es funcional en dispositivos móviles)")
                     )
                 ),
                 actionButton("identify", "IDENTIFICAR")
@@ -45,7 +46,7 @@ page_navbar(
                 nav_panel("DATOS", br(), tableOutput("simple_data"))
             )
         )
-    ),
+    )
 
-    nav_item(tags$a("HELLO WORLD", href = "/sample-apps/hello"))
+    #nav_item(tags$a("HELLO WORLD", href = "/sample-apps/hello"))
 )

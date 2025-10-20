@@ -20,6 +20,7 @@ function(input, output, session) {
 
             # unir datos de las coberturas al punto
             point = point |>
+                st_join(BARRIO_SECTOR, st_within) |>
                 st_join(PUGS_ESTRUCTURANTE, st_within) |>
                 st_join(PUGS_USO_SUELO, st_within)
 
@@ -41,6 +42,9 @@ function(input, output, session) {
                 ~key,                                          ~value,
                 "Coordenadas geográficas",                     point_geo,
                 paste("Coordenadas UTM Zona", point_utm_zone), point_utm,
+                "Parroquia",                                   point$parroquia,
+                "Sector",                                      point$sector,
+                "Barrio",                                      point$barrio,
                 "Clasificación (PUGS 2025)",                   point$clasificac,
                 "Subclasificación (PUGS 2025)",                point$subclasifi,
                 "Uso general del suelo",                       point$uso_genera,

@@ -2,16 +2,6 @@ body > .container-fluid {
     padding-top: 42px;
 }
 
-/* body {
-    width: 88.3vw;
-    transform: scale(1.1325);
-    transform-origin: 0 0;
-} */
-
-#simple_data thead {
-    display: none;
-}
-
 .nav-tabs .nav-link.active {
     color: #8e8c84;
 }
@@ -23,4 +13,12 @@ body > .container-fluid {
 .form-group {
     margin-top: 1rem;
     margin-bottom: 0rem;
+}
+
+.progress-bar {
+    color: #ffffff;
+}
+
+#simple_data thead {
+    display: none;
 }
