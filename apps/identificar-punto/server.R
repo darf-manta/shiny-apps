@@ -35,10 +35,10 @@ function(input, output, session) {
                 st_coordinates(st_transform(point, crs = UTM_EPSG)) |> round(0)
             )
 
-            point_utm_zone = paste0(UTM_EPSG %% 100, if_else(UTM_EPSG > 32700, "S", "N"))
+            point_utm_zone = paste0(UTM_EPSG %% 100, ifelse(UTM_EPSG > 32700, "S", "N"))
 
             # preparar tabla para la pestaña DATOS
-            tribble(
+            dplyr::tribble(
                 ~key,                                          ~value,
                 "Coordenadas geográficas",                     point_geo,
                 paste("Coordenadas UTM Zona", point_utm_zone), point_utm,

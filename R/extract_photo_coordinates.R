@@ -6,7 +6,7 @@ extract_photo_coordinates = function(photo_path) {
     }
 
     # extraer datos EXIF del archivo
-    photo_exif = as.data.frame(read_exif(photo_path, c("GPSLongitude", "GPSLatitude")))
+    photo_exif = as.data.frame(exifr::read_exif(photo_path, c("GPSLongitude", "GPSLatitude")))
 
     # verificar que los datos EXIF incluyan la coordenada
     if(! "GPSLongitude" %in% names(photo_exif)) {
@@ -22,5 +22,5 @@ extract_photo_coordinates = function(photo_path) {
     }
 
     # devolver el punto validado
-    return(select(point, geom = geometry))
+    return(dplyr::select(point, geom = geometry))
 }
