@@ -1,8 +1,8 @@
 page_navbar(
     title = "DARF − MANTA",
     position = "fixed-top",
+    inverse = TRUE,
     fillable = FALSE,
-    inverse = FALSE,
     underline = FALSE,
 
     theme = bs_theme(preset = "sandstone", version = 5),

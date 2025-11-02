@@ -5,10 +5,9 @@ message("This is .Rprofile at ", getwd())
 
 # cargar paquetes requeridos
 suppressPackageStartupMessages( {
-    library(sf)
-    library(tmap)
-    library(shiny)
     library(bslib)
+    library(shiny)
+    library(stars)
 } )
 
 # definir la zona UTM
