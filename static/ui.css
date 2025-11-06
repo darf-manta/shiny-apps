@@ -2,6 +2,10 @@ body > .container-fluid {
     padding-top: 42px;
 }
 
+.navbar-inverse {
+    background-color: #3e3f3a;
+}
+
 .nav-tabs .nav-link.active {
     color: #8e8c84;
 }
