@@ -57,4 +57,15 @@ function(input, output, session) {
             "Uso específico del suelo",                    point$uso_especi
         )
     }, border = TRUE)
+
+    # renderizar mapa
+    output$simple_map = tmap::renderTmap( {
+        simple_point() |> map_point_landuse(
+            Sys.getenv("STORAGE"),
+            Sys.getenv("GOOGLE_SATELLITE"),
+            basemap_delta = c(0.50, -0.50),
+            basemap_offset = c(-9007271.390720, -103382.049840),
+            point_icon = tmap::tmap_icons("../../static/mapPin.png", just = c(0.5, 0.9))
+        )
+    }, mode = "plot")
 }

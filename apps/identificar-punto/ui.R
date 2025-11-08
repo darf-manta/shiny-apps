@@ -43,7 +43,9 @@ page_navbar(
                 actionButton("identify", "IDENTIFICAR")
             ),
             navset_tab(
-                nav_panel("DATOS", br(), tableOutput("simple_data"))
+                nav_panel("DATOS", br(), tableOutput("simple_data")),
+
+                nav_panel("MAPA", br(), tmap::tmapOutput("simple_map", width = 840, height = 600))
             )
         )
     )

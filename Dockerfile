@@ -15,5 +15,6 @@ COPY R         /home/shiny/R/
 COPY apps      /home/shiny/apps/
 COPY data      /home/shiny/data/
 COPY static    /home/shiny/static/
+COPY .Renviron /home/shiny/
 COPY .Rprofile /home/shiny/
 COPY shiny-server.conf /etc/shiny-server/
