@@ -1,6 +1,7 @@
 map_point_landuse = function(point, basemap_storage, basemap_file, overview_level = -1,
                              radius = 100, basemap_offset = NULL, basemap_delta = NULL,
-                             plot_landclass = TRUE, plot_landuse = TRUE, point_icon = 25) {
+                             plot_landclass = TRUE, plot_landuse = TRUE, point_icon = 25,
+                             progress_function = function(detail, value) message(detail)) {
 
     point = st_transform(point, 3857)
 
@@ -12,7 +13,7 @@ map_point_landuse = function(point, basemap_storage, basemap_file, overview_leve
     ) |> st_bbox(crs = 3857)
 
     if(is.null(basemap_offset) | is.null(basemap_delta)) {
-        message("Offset or Delta missing, proxying...")
+        progress_function("Offset or Delta missing, proxying...", 0.250)
 
         basemap_proxy = file.path("/vsicurl", basemap_storage, basemap_file) |>
             read_stars(proxy = TRUE) |> st_dimensions()
@@ -32,18 +33,19 @@ map_point_landuse = function(point, basemap_storage, basemap_file, overview_leve
         nYSize = round(raster_size[2])
     )
 
-    message("Parameters ready, getting basemap...")
+    progress_function("Parameters ready, getting basemap...", 0.500)
 
     basemap = file.path("/vsicurl", basemap_storage, basemap_file) |>
         read_stars(options = paste0("OVERVIEW_LEVEL=", overview_level),
                    proxy = FALSE, RasterIO = raster_params)
 
     if(! "tmap" %in% names(sessionInfo()$otherPkgs)) {
-        message("Package tmap missing, loading...")
+        progress_function("Package tmap missing, loading...", 0.750)
+
         suppressPackageStartupMessages( { library(tmap) } )
     }
 
-    message("Everything ready, plotting...")
+    progress_function("Everything ready, plotting...", 1.000)
 
     point_map = tm_shape(point, bbox = point_bbox, is.main = TRUE) +
         tm_symbols(zindex = 490, fill = "#ff0000", shape = point_icon) +

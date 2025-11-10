@@ -60,12 +60,30 @@ function(input, output, session) {
 
     # renderizar mapa
     output$simple_map = tmap::renderTmap( {
-        simple_point() |> map_point_landuse(
+        # requerir el punto
+        point = simple_point()
+
+        # crear una barra de progreso
+        progress = Progress$new()
+        on.exit(progress$close())
+
+        progress$set(0, NA, "Initializing plotter...")
+
+        # preparar mapa para la pestaña MAPA
+        map_point_landuse(
+            point,
+
+            # leer desde .Renviron
             Sys.getenv("STORAGE"),
             Sys.getenv("GOOGLE_SATELLITE"),
-            basemap_delta = c(0.50, -0.50),
+
+            # definir delta y offset del mapa base
+            # se recomienda conocer previamente estos datos
+            basemap_delta = c(0.250, -0.250),
             basemap_offset = c(-9007271.390720, -103382.049840),
-            point_icon = tmap::tmap_icons("../../static/mapPin.png", just = c(0.5, 0.9))
+
+            point_icon = tmap::tmap_icons("../../static/mapPin.png", just = c(0.5, 0.9)),
+            progress_function = function(detail, value) progress$set(value, NA, detail)
         )
     }, mode = "plot")
 }
