@@ -45,7 +45,7 @@ page_navbar(
             navset_tab(
                 nav_panel("DATOS", br(), tableOutput("simple_data")),
 
-                nav_panel("MAPA", br(), tmap::tmapOutput("simple_map", width = 840, height = 600))
+                nav_panel("MAPA", br(), plotOutput("simple_map", 840, 600))
             )
         )
     )
