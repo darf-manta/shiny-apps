@@ -1,3 +1,13 @@
+1. Detener el contenedor y eliminar la versión actual de la imagen
+
+```
+docker stop shiny-apps-1
+docker rm shiny-apps-1
+docker image rm shiny-apps
+```
+
+2. Construir la versión nueva de la imagen e inicializar el contenedor
+
 ```
 docker build -t shiny-apps .
 docker run -p 172.17.0.1:3838:3838 --network qfcloud_default --name shiny-apps-1 -d shiny-apps
