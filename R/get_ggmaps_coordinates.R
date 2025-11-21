@@ -1,5 +1,11 @@
 get_ggmaps_coordinates = function(ggmaps_url) {
-    ggmaps_host = curl::curl_parse_url(ggmaps_url, default_scheme = TRUE)$host
+
+    # rocker/shiny:4.5.0 has {curl} 6.3.0 but default_scheme was added on 7.0.0
+    # delay this functionality until rocker/shiny is updated
+    #
+    # ggmaps_host = curl::curl_parse_url(ggmaps_url, default_scheme = TRUE)$host
+
+    ggmaps_host = curl::curl_parse_url(ggmaps_url)$host
 
     if(! ggmaps_host %in% c("maps.app.goo.gl", "maps.google.com", "google.com", "www.google.com")) {
         stop("La URL ingresada no es de Google Maps.")
