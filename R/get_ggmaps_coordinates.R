@@ -1,4 +1,5 @@
 get_ggmaps_coordinates = function(ggmaps_url) {
+    if(ggmaps_url == "") stop("No se ha ingresado una URL.")
 
     # rocker/shiny:4.5.0 has {curl} 6.3.0 but default_scheme was added on 7.0.0
     # delay this functionality until rocker/shiny is updated

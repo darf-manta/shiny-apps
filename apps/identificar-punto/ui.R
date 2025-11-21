@@ -37,7 +37,8 @@ page_navbar(
                     accordion_panel(
                         title = "POR GOOGLE MAPS",
                         "Ingrese una URL de Google Maps del punto a identificar:",
-                        textInput("text3", NULL, placeholder = "www.google.com/maps/...")
+                        textInput("text3", NULL, placeholder = "www.google.com/maps/..."),
+                        actionButton("clear", "LIMPIAR")
                     ),
 
                     accordion_panel(

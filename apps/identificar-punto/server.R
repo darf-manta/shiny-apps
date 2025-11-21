@@ -1,4 +1,7 @@
 function(input, output, session) {
+    # ejecutar al presionar el botón LIMPIAR
+    observeEvent(input$clear, updateTextInput(session, "text3", value = ""))
+
     # ejecutar al presionar el botón IDENTIFICAR
     simple_point = eventReactive(input$identify,
         tryCatch( {
