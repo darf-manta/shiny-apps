@@ -10,6 +10,8 @@ function(input, output, session) {
                 # crear un punto con las coordenadas ingresadas
                 "POR COORDENADAS" = validate_coordinates(input$text1, input$text2),
 
+                "POR GOOGLE MAPS" = get_ggmaps_coordinates(input$text3),
+
                 # obtener el punto con la ubicación del dispositivo
                 "POR UBICACIÓN" = get_device_coordinates(session, input),
 

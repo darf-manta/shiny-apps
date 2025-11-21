@@ -35,6 +35,12 @@ page_navbar(
                     ),
 
                     accordion_panel(
+                        title = "POR GOOGLE MAPS",
+                        "Ingrese una URL de Google Maps del punto a identificar:",
+                        textInput("text3", NULL, placeholder = "www.google.com/maps/...")
+                    ),
+
+                    accordion_panel(
                         title = "POR UBICACIÓN",
                         paste("Permita a este sitio web acceder a su ubicación GPS",
                               "(solamente es funcional en dispositivos móviles)")
