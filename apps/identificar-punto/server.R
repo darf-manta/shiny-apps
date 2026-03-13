@@ -13,6 +13,7 @@ function(input, output, session) {
                 # crear un punto con las coordenadas ingresadas
                 "POR COORDENADAS" = validate_coordinates(input$text1, input$text2),
 
+                # obtener el punto con la respectiva URL de Google Maps
                 "POR GOOGLE MAPS" = get_ggmaps_coordinates(input$text3),
 
                 # obtener el punto con la ubicación del dispositivo
@@ -80,7 +81,7 @@ function(input, output, session) {
 
             # leer desde .Renviron
             Sys.getenv("STORAGE"),
-            Sys.getenv("GOOGLE_SATELLITE"),
+            Sys.getenv("GGMAPS_SATELLITE"),
 
             # definir delta y offset del mapa base
             # se recomienda conocer previamente estos datos
