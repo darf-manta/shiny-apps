@@ -2,7 +2,6 @@
 
 ```
 docker stop shiny-apps-1
-docker rm shiny-apps-1
 docker image rm shiny-apps
 ```
 
@@ -10,5 +9,5 @@ docker image rm shiny-apps
 
 ```
 docker build -t shiny-apps .
-docker run -p 172.17.0.1:3838:3838 --network qfcloud_default --name shiny-apps-1 -d shiny-apps
+docker run -d -p 172.17.0.1:3838:3838 --network qfcloud_default --name shiny-apps-1 --rm shiny-apps
 ```
