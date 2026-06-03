@@ -1,14 +1,18 @@
 page_navbar(
     title = "DARF − MANTA",
-    position = "fixed-top",
-    inverse = TRUE,
-    fillable = FALSE,
-    underline = FALSE,
-
     theme = bs_theme(preset = "sandstone", version = 5),
+    navbar_options = navbar_options(position = "fixed-top", theme = "dark", underline = FALSE),
 
     includeScript("../../static/getLocation.js"),
     includeCSS("../../static/ui.css"),
+
+    nav_menu(
+        title = "INDICADORES",
+
+        nav_item(tags$a("INGRESAR INDICADOR", href = "/indicadores/ingresar-indicador")),
+
+        nav_item(tags$a("REPORTAR INDICADORES", href = "/indicadores/reportar-indicadores"))
+    ),
 
     nav_panel(
         title = "IDENTIFICAR PUNTO",
@@ -56,6 +60,4 @@ page_navbar(
             )
         )
     )
-
-    #nav_item(tags$a("HELLO WORLD", href = "/sample-apps/hello"))
 )
