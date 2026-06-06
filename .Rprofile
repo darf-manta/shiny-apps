@@ -25,15 +25,15 @@ for(i in dir("R", pattern = "R$", full.names = TRUE)) source(i)
 # si la sesión es interactiva
 # i.e. en RStudio
 if(interactive()) {
-    available_apps = dirname(dir("apps", "server", recursive = TRUE))
+    available_apps = dirname(dir("apps", "server", FALSE, TRUE, TRUE))
 
     # listar todas las aplicaciones
-    message("\nAvailable apps:\n")
+    message("\nAvailable apps:")
     message(paste(seq_along(available_apps), available_apps, collapse = "\n"))
 
     # ofrecer ejecutar una aplicación
     message("\nRun app number:")
     i = as.integer(readline())
 
-    if(i %in% seq_along(available_apps)) runApp(file.path("apps", available_apps[i]))
+    if(i %in% seq_along(available_apps)) runApp(available_apps[i])
 }

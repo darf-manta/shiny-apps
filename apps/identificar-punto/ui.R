@@ -9,7 +9,7 @@ page_navbar(
     nav_menu(
         title = "INDICADORES",
 
-        nav_item(tags$a("INGRESAR INDICADOR", href = "/indicadores/ingresar-indicador")),
+        nav_item(tags$a("REGISTRAR INDICADOR", href = "/indicadores/ingresar-indicador")),
 
         nav_item(tags$a("REPORTAR INDICADORES", href = "/indicadores/reportar-indicadores"))
     ),
@@ -17,6 +17,7 @@ page_navbar(
     nav_panel(
         title = "IDENTIFICAR PUNTO",
         layout_sidebar(
+            fillable = FALSE,
             sidebar = sidebar(
                 open = list(desktop = "always", mobile = "always-above"),
                 accordion(

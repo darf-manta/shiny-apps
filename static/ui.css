@@ -6,7 +6,11 @@ body > .container-fluid {
     background-color: #3e3f3a;
 }
 
-.dropdown-menu > li > a:active,
+.dropdown-menu > li > a.active,
+.dropdown-menu > li > a:active {
+    background-color: unset;
+}
+
 .dropdown-menu > li > a:focus,
 .dropdown-menu > li > a:hover {
     background-color: #3e3f3a;
@@ -20,9 +24,13 @@ body > .container-fluid {
     --bs-accordion-bg: unset;
 }
 
-.form-group {
+.accordion-body > .form-group {
     margin-top: 1rem;
     margin-bottom: 0rem;
+}
+
+.radio-inline {
+    margin-right: 1rem;
 }
 
 .progress-bar {

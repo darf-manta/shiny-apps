@@ -25,7 +25,7 @@ function(input, output, session) {
                 } else stop("No se ha cargado una fotografía.")
             )
         # capturar error, en caso de ocurrir
-        }, error = function(error) stop(safeError(error$message)))
+        }, error = function(err) stop(safeError(err$message)))
     )
 
     # renderizar tabla
