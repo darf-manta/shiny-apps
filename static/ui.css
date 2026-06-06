@@ -37,6 +37,16 @@ body > .container-fluid {
     color: #ffffff;
 }
 
+.shiny-panel-conditional > * {
+    animation: conditional 0.8s;
+}
+
+@keyframes conditional {
+    0%   { opacity: 0; }
+    25%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 #simple_data thead {
     display: none;
 }

@@ -14,27 +14,27 @@ cookies::add_cookie_handlers(page_navbar(
                 fillable = FALSE,
                 sidebar = sidebar(
                     open = list(desktop = "always", mobile = "always-above"),
-                    conditionalPanel("false", textInput("loggedUser", NULL)),
 
                     conditionalPanel(
-                        "!input.loggedUser",
+                        "output.logoutUser === ''",
 
-                        "Inicie sesión para poder utilizar esta herramienta:",
+                        span("Inicie sesión para poder utilizar esta herramienta:"),
                         textInput("loginUser", NULL, placeholder = "usuario"),
                         passwordInput("loginPass", NULL, placeholder = "contraseña"),
                         actionButton("login", "INICIAR SESIÓN")
                     ),
 
                     conditionalPanel(
-                        "input.loggedUser",
+                        "output.logoutUser !== ''",
 
+                        span("Ha iniciado sesión como:"),
                         textOutput("logoutUser", inline = TRUE),
                         actionButton("logout", "CERRAR SESIÓN")
                     )
                 ),
 
                 conditionalPanel(
-                    "input.loggedUser",
+                    "output.logoutUser !== ''",
 
                     radioButtons("indicatorType", "Seleccione el indicador:",
                                  c("Ambiente", "Riesgos", "Fauna"), inline = TRUE),
