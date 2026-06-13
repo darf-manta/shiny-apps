@@ -9,7 +9,7 @@ cookies::add_cookie_handlers(page_navbar(
         title = "INDICADORES",
 
         nav_panel(
-            title = "REGISTRAR INDICADOR",
+            title = "INGRESAR INDICADOR",
             layout_sidebar(
                 fillable = FALSE,
                 sidebar = sidebar(
@@ -43,9 +43,7 @@ cookies::add_cookie_handlers(page_navbar(
                     actionButton("register", "REGISTRAR")
                 )
             )
-        ),
-
-        nav_item(tags$a("REPORTAR INDICADORES", href = "/indicadores/reportar-indicadores"))
+        )
     ),
 
     nav_item(tags$a("IDENTIFICAR PUNTO", href = "/identificar-punto"))

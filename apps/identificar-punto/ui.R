@@ -9,7 +9,7 @@ page_navbar(
     nav_menu(
         title = "INDICADORES",
 
-        nav_item(tags$a("REGISTRAR INDICADOR", href = "/indicadores/ingresar-indicador")),
+        nav_item(tags$a("REGISTRAR INDICADOR", href = "/indicadores/registrar-indicador")),
 
         nav_item(tags$a("REPORTAR INDICADORES", href = "/indicadores/reportar-indicadores"))
     ),
