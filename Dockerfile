@@ -21,4 +21,9 @@ COPY data      /home/shiny/data/
 COPY static    /home/shiny/static/
 COPY .Renviron /home/shiny/
 COPY .Rprofile /home/shiny/
+
+RUN chmod 0700  -R /home/shiny/*
+RUN chown shiny -R /home/shiny/*
+RUN chgrp shiny -R /home/shiny/*
+
 COPY shiny-server.conf /etc/shiny-server/
