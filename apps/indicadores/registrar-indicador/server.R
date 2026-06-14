@@ -9,6 +9,7 @@ function(input, output, session) {
         username_label = "Usuario:", password_label = "Contraseña:", enclosing_panel = div
     )
 
+    # ejecutar al iniciar sesión
     observeEvent(logged$logged_in,
         tryCatch( {
             # mostrar el usuario de la sesión
@@ -20,6 +21,7 @@ function(input, output, session) {
         }, error = function(err) stop(safeError(err$message)))
     )
 
+    # ejecutar al cambiar el tipo de indicador
     observeEvent(input$indicatorType,
         tryCatch( {
             pg_resp = "SELECT indicator FROM users_indicators WHERE area = '"
@@ -29,6 +31,32 @@ function(input, output, session) {
             updateSelectInput(session, "indicator", choices = c("", pg_resp$indicator))
         # capturar error, en caso de ocurrir
         }, error = function(err) stop(safeError(err$message)))
+    )
+
+    # ejecutar al presionar el botón REGISTRAR
+    observeEvent(input$register,
+        tryCatch( {
+            if(input$indicator == "") stop("Debe seleccionar el indicador.")
+            if(is.na(input$value) || input$value < 1) {
+                stop("Debe ingresar una cantidad válida del indicador.")
+            }
+
+            # crear el nuevo registro
+            new_row = data.frame(
+                timestamp       = Sys.time(),
+                person          = logged$person_name,
+                indicator       = input$indicator,
+                indicator_value = input$value
+            )
+
+            # añadir el nuevo registro a la base de datos
+            dbAppendTable(pg_conn, "users_records", new_row)
+            showNotification("Se registró el indicador correctamente.", duration = 2)
+
+            updateSelectInput(session, "indicator", selected = "")
+            updateNumericInput(session, "value", value = NA)
+        # notificar error, en caso de ocurrir
+        }, error = function(err) showNotification(err$message, duration = 2, type = "error"))
     )
 
     # desconectar la base de datos

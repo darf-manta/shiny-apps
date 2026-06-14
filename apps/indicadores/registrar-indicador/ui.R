@@ -29,7 +29,7 @@ page_navbar(
                     radioButtons("indicatorType", "Seleccione el indicador:",
                                  c("Ambiente", "Riesgos", "Fauna"), inline = TRUE),
                     selectInput("indicator", NULL, ""),
-                    numericInput("value", "Ingrese el valor del indicador:", 1, 1),
+                    numericInput("value", "Ingrese la cantidad del indicador:", NA, 1),
                     actionButton("register", "REGISTRAR")
                 )
             )
