@@ -47,6 +47,14 @@ body > .container-fluid {
     100% { opacity: 1; }
 }
 
+#shiny-apps-login_ui .checkbox {
+    margin-top: 1rem;
+}
+
+#shiny-apps-logged_in {
+    height: 0rem;
+}
+
 #simple_data thead {
     display: none;
 }
