@@ -6,6 +6,7 @@ message("This is .Rprofile at ", getwd())
 # cargar paquetes requeridos
 suppressPackageStartupMessages( {
     library(bslib)
+    library(login)
     library(shiny)
     library(stars)
 } )

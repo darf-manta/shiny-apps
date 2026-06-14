@@ -5,11 +5,11 @@ RUN apt-get install -y libgdal-dev libgeos-dev libproj-dev libudunits2-dev
 
 RUN Rscript -e 'install.packages("tmap")'
 RUN Rscript -e 'install.packages("dplyr")'
-RUN Rscript -e 'install.packages("cookies")'
-RUN Rscript -e 'install.packages("RPostgres")'
 RUN Rscript -e 'install.packages("exifr")'
+RUN Rscript -e 'install.packages("login")'
 RUN Rscript -e 'install.packages("httr2")'
 RUN Rscript -e 'install.packages("xml2")'
+RUN Rscript -e 'install.packages("RPostgres")'
 
 # RUN rm -rf /tmp/*
 # RUN rm -rf /var/lib/apt/lists/*
