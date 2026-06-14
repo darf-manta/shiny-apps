@@ -3,10 +3,10 @@ function(input, output, session) {
     pg_conn = postgres_connect("riesgodb")
 
     # iniciar sesión o restaurar la cookie
-    logged = login_server("indicadores/registrar-indicador",
-        pg_conn, username_label = "Usuario:", password_label = "Contraseña:",
+    logged = login_server("shiny-apps",
+        pg_conn, cookie_name = "shiny-apps-username", cookie_expiration = 90,
         additional_fields = c("person_name", "person_mail", "person_area"),
-        enclosing_panel = div
+        username_label = "Usuario:", password_label = "Contraseña:", enclosing_panel = div
     )
 
     observeEvent(logged$logged_in,

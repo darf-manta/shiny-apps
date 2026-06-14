@@ -15,17 +15,17 @@ page_navbar(
                 sidebar = sidebar(
                     open = list(desktop = "always", mobile = "always-above"),
 
-                    login_ui("indicadores/registrar-indicador"),
+                    login_ui("shiny-apps"),
 
-                    is_logged_in("indicadores/registrar-indicador",
+                    is_logged_in("shiny-apps",
                         span("Ha iniciado sesión como:"),
                         textOutput("loggedUser", inline = TRUE)
                     ),
 
-                    logout_button("indicadores/registrar-indicador", icon = NULL)
+                    logout_button("shiny-apps", icon = NULL)
                 ),
 
-                is_logged_in("indicadores/registrar-indicador",
+                is_logged_in("shiny-apps",
                     radioButtons("indicatorType", "Seleccione el indicador:",
                                  c("Ambiente", "Riesgos", "Fauna"), inline = TRUE),
                     selectInput("indicator", NULL, c("", "Ambiente", "Riesgos", "Fauna")),
