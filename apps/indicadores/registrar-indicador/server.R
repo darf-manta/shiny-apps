@@ -20,6 +20,17 @@ function(input, output, session) {
         }, error = function(err) stop(safeError(err$message)))
     )
 
+    observeEvent(input$indicatorType,
+        tryCatch( {
+            pg_resp = "SELECT indicator FROM users_indicators WHERE area = '"
+            pg_resp = dbGetQuery(pg_conn, paste0(pg_resp, input$indicatorType, "'"))
+
+            # actualizar los indicadores disponibles
+            updateSelectInput(session, "indicator", choices = c("", pg_resp$indicator))
+        # capturar error, en caso de ocurrir
+        }, error = function(err) stop(safeError(err$message)))
+    )
+
     # desconectar la base de datos
     onSessionEnded(function() dbDisconnect(pg_conn))
 }

@@ -28,8 +28,8 @@ page_navbar(
                 is_logged_in("shiny-apps",
                     radioButtons("indicatorType", "Seleccione el indicador:",
                                  c("Ambiente", "Riesgos", "Fauna"), inline = TRUE),
-                    selectInput("indicator", NULL, c("", "Ambiente", "Riesgos", "Fauna")),
-                    numericInput("indicatorValue", "Ingrese el valor del indicador:", 1, 1),
+                    selectInput("indicator", NULL, ""),
+                    numericInput("value", "Ingrese el valor del indicador:", 1, 1),
                     actionButton("register", "REGISTRAR")
                 )
             )
